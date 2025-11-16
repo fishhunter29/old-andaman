@@ -1,4 +1,3 @@
-// src/composables/useDataPack.ts
 import { ref } from 'vue'
 
 const cache = ref<any | null>(null)
@@ -19,17 +18,15 @@ export function useDataPack() {
         cabs,
         scooters,
         bicycles,
-        islands,
         meta
       ] = await Promise.all([
         fetch('/data/locations.json').then(r => r.json()),
         fetch('/data/adventures.json').then(r => r.json()),
-        fetch('/data/location_adventures.json').then(r => r.json()),
+        fetch('/data/location_adventures.json').then(r => r.json()).catch(() => []),
         fetch('/data/ferries.json').then(r => r.json()),
         fetch('/data/cabs.json').then(r => r.json()),
         fetch('/data/scooters.json').then(r => r.json()),
-        fetch('/data/bicycles.json').then(r => r.json()),
-        fetch('/data/islands.json').then(r => r.json()).catch(() => []),
+        fetch('/data/bicycle.json').then(r => r.json()).catch(() => []),
         fetch('/data/meta.json')
           .then(r => r.json())
           .catch(() => ({ currency: 'INR', taxPercent: 0, serviceFee: 0 }))
@@ -43,7 +40,6 @@ export function useDataPack() {
         cabs,
         scooters,
         bicycles,
-        islands,
         meta
       }
 
