@@ -13,8 +13,8 @@ export type CartSection =
   | 'ferries'
   | 'scooters'
   | 'bicycles'
+  | 'hotels'
   | 'other'
-
 export interface CartItem {
   /** Unique id inside the cart (you can encode type+island+direction etc.) */
   id: string
@@ -84,25 +84,27 @@ export const useCart = defineStore('cart', {
      * - Scooters
      * - Bicycles
      */
-    bySection(state): Record<CartSection, SectionTotals> {
-      const base: Record<CartSection, SectionTotals> = {
-        activities: { section: 'activities', items: [], subTotal: 0 },
-        cabs: { section: 'cabs', items: [], subTotal: 0 },
-        ferries: { section: 'ferries', items: [], subTotal: 0 },
-        scooters: { section: 'scooters', items: [], subTotal: 0 },
-        bicycles: { section: 'bicycles', items: [], subTotal: 0 },
-        other: { section: 'other', items: [], subTotal: 0 }
-      }
+  bySection(state): Record<CartSection, SectionTotals> {
+  const base: Record<CartSection, SectionTotals> = {
+    activities: { section: 'activities', items: [], subTotal: 0 },
+    cabs:       { section: 'cabs',       items: [], subTotal: 0 },
+    ferries:    { section: 'ferries',    items: [], subTotal: 0 },
+    scooters:   { section: 'scooters',   items: [], subTotal: 0 },
+    bicycles:   { section: 'bicycles',   items: [], subTotal: 0 },
+    hotels:     { section: 'hotels',     items: [], subTotal: 0 },
+    other:      { section: 'other',      items: [], subTotal: 0 }
+  }
 
-      for (const item of state.items) {
-        const sec: CartSection = item.section ?? 'other'
-        const bucket = base[sec]
-        bucket.items.push(item)
-        bucket.subTotal += item.unitPrice * item.quantity
-      }
+  for (const item of state.items) {
+    const sec: CartSection = item.section ?? 'other'
+    const bucket = base[sec]
+    bucket.items.push(item)
+    bucket.subTotal += item.unitPrice * item.quantity
+  }
 
-      return base
-    }
+  return base
+}
+
   },
 
   actions: {
