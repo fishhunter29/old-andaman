@@ -3,10 +3,7 @@
     "id": "BT001",
     "island": "Baratang (Middle Andaman)",
     "location": "Baratang Limestone Caves",
-    "moods": [
-      "adventure",
-      "family"
-    ],
+    "moods": ["adventure", "family"],
     "category": "attraction",
     "brief": "Speedboat through mangroves to limestone formations.",
     "typicalHours": 5.0,
@@ -20,10 +17,7 @@
     "id": "BT002",
     "island": "Baratang (Middle Andaman)",
     "location": "Baratang Mud Volcano",
-    "moods": [
-      "offbeat",
-      "adventure"
-    ],
+    "moods": ["offbeat", "adventure"],
     "category": "attraction",
     "brief": "Small natural mud eruptions; short walk involved.",
     "typicalHours": 1.0,
@@ -37,10 +31,7 @@
     "id": "BT003",
     "island": "Baratang (Middle Andaman)",
     "location": "Mangrove Boat Ride (Baratang)",
-    "moods": [
-      "family",
-      "adventure"
-    ],
+    "moods": ["family", "adventure"],
     "category": "attraction",
     "brief": "Canopied mangrove channels en route to the caves.",
     "typicalHours": 1.0,
@@ -50,81 +41,12 @@
     "recommendedTime": "any",
     "slug": "mangrove-boat-ride-baratang"
   },
-  {
-    "id": "DG001",
-    "island": "Diglipur (North Andaman)",
-    "location": "Ross & Smith Twin Islands",
-    "moods": [
-      "romantic",
-      "nature",
-      "adventure"
-    ],
-    "category": "island",
-    "brief": "Sandbar connecting twin isles; permits.",
-    "typicalHours": 4.0,
-    "bestTime": "Nov-Mar",
-    "permitRequired": true,
-    "bookingType": "permit+boat",
-    "recommendedTime": "any",
-    "slug": "ross-and-smith-twin-islands"
-  },
-  {
-    "id": "DG002",
-    "island": "Diglipur (North Andaman)",
-    "location": "Kalipur Beach (Turtle Nesting)",
-    "moods": [
-      "nature"
-    ],
-    "category": "beach",
-    "brief": "Nesting season Dec-Mar; rocky shore.",
-    "typicalHours": 2.0,
-    "bestTime": "Dec-Mar",
-    "permitRequired": false,
-    "bookingType": "none",
-    "recommendedTime": "sunrise/sunset",
-    "slug": "kalipur-beach-turtle-nesting"
-  },
-  {
-    "id": "DG003",
-    "island": "Diglipur (North Andaman)",
-    "location": "Ramnagar Beach (Snorkeling)",
-    "moods": [
-      "family",
-      "adventure"
-    ],
-    "category": "beach",
-    "brief": "Clear waters near Diglipur.",
-    "typicalHours": 2.0,
-    "bestTime": "Nov-Mar",
-    "permitRequired": false,
-    "bookingType": "none",
-    "recommendedTime": "sunrise/sunset",
-    "slug": "ramnagar-beach-snorkeling"
-  },
-  {
-    "id": "DG006",
-    "island": "Diglipur (North Andaman)",
-    "location": "Saddle Peak National Park (Trek)",
-    "moods": [
-      "adventure",
-      "nature"
-    ],
-    "category": "trek",
-    "brief": "Highest point in Andamans (732m).",
-    "typicalHours": 7.0,
-    "bestTime": "Nov-Mar",
-    "permitRequired": false,
-    "bookingType": "permit_or_guide",
-    "recommendedTime": "any",
-    "slug": "saddle-peak-national-park-trek"
-  },
+
   {
     "id": "DG008",
     "island": "Diglipur (North Andaman)",
     "location": "Diglipur Jetty (Aerial Bay)",
-    "moods": [
-      "transport"
-    ],
+    "moods": ["transport"],
     "category": "jetty",
     "brief": "Gateway to Ross & Smith.",
     "typicalHours": 0.5,
@@ -138,10 +60,7 @@
     "id": "DG009",
     "island": "Diglipur (North Andaman)",
     "location": "Mehendi Tikrey Viewpoint",
-    "moods": [
-      "romantic",
-      "nature"
-    ],
+    "moods": ["romantic", "nature"],
     "category": "viewpoint",
     "brief": "Hilltop viewpoint; panoramic vistas.",
     "typicalHours": 2.0,
@@ -155,10 +74,7 @@
     "id": "DG010",
     "island": "Diglipur (North Andaman)",
     "location": "Kalighat Creek",
-    "moods": [
-      "nature",
-      "adventure"
-    ],
+    "moods": ["nature", "adventure"],
     "category": "mangrove",
     "brief": "Creekside mangrove boat rides.",
     "typicalHours": 2.0,
@@ -168,16 +84,14 @@
     "recommendedTime": "early morning",
     "slug": "kalighat-creek"
   },
+
   {
     "id": "DP001",
     "island": "Diglipur (North Andaman)",
     "location": "Ross & Smith Twin Islands",
-    "moods": [
-      "romantic",
-      "family"
-    ],
+    "moods": ["romantic", "nature", "adventure", "family"],
     "category": "island",
-    "brief": "Twin islands linked by a sandbar; postcard views.",
+    "brief": "Twin islands linked by a sandbar; postcard views with permits required.",
     "typicalHours": 4.0,
     "bestTime": "Nov-Apr",
     "permitRequired": true,
@@ -189,12 +103,9 @@
     "id": "DP002",
     "island": "Diglipur (North Andaman)",
     "location": "Saddle Peak National Park (Trek)",
-    "moods": [
-      "adventure",
-      "offbeat"
-    ],
+    "moods": ["adventure", "offbeat"],
     "category": "park",
-    "brief": "Highest peak in Andamans; full-day forest trek.",
+    "brief": "Highest peak in Andamans; full-day forest trek inside a national park.",
     "typicalHours": 8.0,
     "bestTime": "Nov-Feb",
     "permitRequired": false,
@@ -206,10 +117,7 @@
     "id": "DP003",
     "island": "Diglipur (North Andaman)",
     "location": "Kalipur Beach (Turtle Nesting)",
-    "moods": [
-      "family",
-      "offbeat"
-    ],
+    "moods": ["family", "offbeat"],
     "category": "beach",
     "brief": "Black sand beach with seasonal turtle nesting.",
     "typicalHours": 2.0,
@@ -223,12 +131,9 @@
     "id": "DP004",
     "island": "Diglipur (North Andaman)",
     "location": "Ramnagar Beach (Diglipur)",
-    "moods": [
-      "offbeat",
-      "family"
-    ],
+    "moods": ["offbeat", "family", "adventure"],
     "category": "beach",
-    "brief": "Quieter beach near Kalipur; simple facilities.",
+    "brief": "Quieter beach near Kalipur with clear waters and snorkeling options.",
     "typicalHours": 1.5,
     "bestTime": "Nov-Mar",
     "permitRequired": false,
@@ -240,9 +145,7 @@
     "id": "DP005",
     "island": "Diglipur (North Andaman)",
     "location": "Mud Volcano (Shyam Nagar)",
-    "moods": [
-      "offbeat"
-    ],
+    "moods": ["offbeat"],
     "category": "attraction",
     "brief": "Small mud vents amid low hills; short walk.",
     "typicalHours": 1.0,
@@ -256,10 +159,7 @@
     "id": "DP006",
     "island": "Diglipur (North Andaman)",
     "location": "Alfred Caves (Seasonal Trek)",
-    "moods": [
-      "adventure",
-      "offbeat"
-    ],
+    "moods": ["adventure", "offbeat"],
     "category": "trek",
     "brief": "Seasonal forest hike to limestone cave clusters.",
     "typicalHours": 4.0,
@@ -269,15 +169,12 @@
     "recommendedTime": "early morning",
     "slug": "alfred-caves-seasonal-trek"
   },
+
   {
     "id": "HL001",
     "island": "Havelock (Swaraj Dweep)",
     "location": "Radhanagar Beach (Beach No.7)",
-    "moods": [
-      "family",
-      "romantic",
-      "nature"
-    ],
+    "moods": ["family", "romantic", "nature"],
     "category": "beach",
     "brief": "Blue Flag beach; best sunsets.",
     "typicalHours": 3.0,
@@ -285,16 +182,13 @@
     "permitRequired": false,
     "bookingType": "none",
     "recommendedTime": "sunrise/sunset",
-    "slug": "radhanagar-beach-beach-no.7"
+    "slug": "radhanagar-beach-beach-no-7"
   },
   {
     "id": "HL002",
     "island": "Havelock (Swaraj Dweep)",
     "location": "Elephant Beach",
-    "moods": [
-      "family",
-      "adventure"
-    ],
+    "moods": ["family", "adventure"],
     "category": "beach",
     "brief": "Snorkeling hub (boat/trek); water sports.",
     "typicalHours": 3.0,
@@ -308,10 +202,7 @@
     "id": "HL003",
     "island": "Havelock (Swaraj Dweep)",
     "location": "Kalapathar Beach",
-    "moods": [
-      "romantic",
-      "family"
-    ],
+    "moods": ["romantic", "family"],
     "category": "beach",
     "brief": "Rocky black stones & calm mornings.",
     "typicalHours": 2.0,
@@ -325,9 +216,7 @@
     "id": "HL004",
     "island": "Havelock (Swaraj Dweep)",
     "location": "Govind Nagar Beach",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "beach",
     "brief": "Long lagoon, shallow waters.",
     "typicalHours": 2.0,
@@ -341,10 +230,7 @@
     "id": "HL006",
     "island": "Havelock (Swaraj Dweep)",
     "location": "Nemo Reef (Shore Dive)",
-    "moods": [
-      "adventure",
-      "nature"
-    ],
+    "moods": ["adventure", "nature"],
     "category": "dive_site",
     "brief": "Beginner-friendly shallow reef shore entry.",
     "typicalHours": 2.0,
@@ -358,9 +244,7 @@
     "id": "HL010",
     "island": "Havelock (Swaraj Dweep)",
     "location": "Sea Walk Pontoon (Elephant Beach)",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "experience",
     "brief": "Helmet sea walk station.",
     "typicalHours": 1.0,
@@ -374,10 +258,7 @@
     "id": "HL011",
     "island": "Havelock (Swaraj Dweep)",
     "location": "Kayaking - Mangrove Trails",
-    "moods": [
-      "adventure",
-      "family"
-    ],
+    "moods": ["adventure", "family"],
     "category": "experience",
     "brief": "Guided day/night bioluminescence routes.",
     "typicalHours": 2.0,
@@ -385,16 +266,14 @@
     "permitRequired": false,
     "bookingType": "operator",
     "recommendedTime": "tide/weather dependent",
-    "slug": "kayaking---mangrove-trails"
+    "slug": "kayaking-mangrove-trails"
   },
+
   {
     "id": "HV001",
     "island": "Havelock (Swaraj Dweep)",
     "location": "Radhanagar Beach (Beach No.7)",
-    "moods": [
-      "family",
-      "romantic"
-    ],
+    "moods": ["family", "romantic"],
     "category": "beach",
     "brief": "Iconic sunset beach with wide, soft sands.",
     "typicalHours": 2.0,
@@ -407,11 +286,8 @@
   {
     "id": "HV002",
     "island": "Havelock (Swaraj Dweep)",
-    "location": "Kalapatthar Beach",
-    "moods": [
-      "romantic",
-      "family"
-    ],
+    "location": "Kalapathar Beach",
+    "moods": ["romantic", "family"],
     "category": "beach",
     "brief": "Long shoreline with dark rocks and photo points.",
     "typicalHours": 1.5,
@@ -419,16 +295,13 @@
     "permitRequired": false,
     "bookingType": "none",
     "recommendedTime": "sunrise/sunset",
-    "slug": "kalapatthar-beach"
+    "slug": "kalapathar-beach"
   },
   {
     "id": "HV003",
     "island": "Havelock (Swaraj Dweep)",
     "location": "Elephant Beach",
-    "moods": [
-      "family",
-      "adventure"
-    ],
+    "moods": ["family", "adventure"],
     "category": "beach",
     "brief": "Short boat/trek from Havelock; sea walk & snorkel hub.",
     "typicalHours": 4.0,
@@ -442,12 +315,9 @@
     "id": "HV004",
     "island": "Havelock (Swaraj Dweep)",
     "location": "Govind Nagar / Vijaynagar Beach (No.5)",
-    "moods": [
-      "romantic",
-      "family"
-    ],
+    "moods": ["romantic", "family"],
     "category": "beach",
-    "brief": "Calm lagoon waters with cafÃ©s and easy swims.",
+    "brief": "Calm lagoon waters with cafés and easy swims.",
     "typicalHours": 2.0,
     "bestTime": "Oct-Mar",
     "permitRequired": false,
@@ -459,9 +329,7 @@
     "id": "HV005",
     "island": "Havelock (Swaraj Dweep)",
     "location": "Nemo Reef (Discover Scuba site)",
-    "moods": [
-      "adventure"
-    ],
+    "moods": ["adventure"],
     "category": "attraction",
     "brief": "Beginner-friendly reef for first-time scuba divers.",
     "typicalHours": 3.0,
@@ -475,10 +343,7 @@
     "id": "HV006",
     "island": "Havelock (Swaraj Dweep)",
     "location": "Mangrove Kayaking (Day/Night)",
-    "moods": [
-      "adventure",
-      "romantic"
-    ],
+    "moods": ["adventure", "romantic"],
     "category": "experience",
     "brief": "Guided kayaking through mangroves; bioluminescence on select nights.",
     "typicalHours": 2.0,
@@ -492,9 +357,7 @@
     "id": "HV007",
     "island": "Havelock (Swaraj Dweep)",
     "location": "The Lighthouse / The Wall (Dive Sites)",
-    "moods": [
-      "adventure"
-    ],
+    "moods": ["adventure"],
     "category": "landmark",
     "brief": "Boat dives for certified divers with dramatic drop-offs.",
     "typicalHours": 4.0,
@@ -507,28 +370,22 @@
   {
     "id": "HV008",
     "island": "Havelock (Swaraj Dweep)",
-    "location": "Govind Nagar Market & CafÃ©s",
-    "moods": [
-      "family",
-      "romantic"
-    ],
+    "location": "Govind Nagar Market & Cafés",
+    "moods": ["family", "romantic"],
     "category": "attraction",
-    "brief": "CafÃ©s and shops close to main beaches.",
+    "brief": "Cafés and shops close to main beaches.",
     "typicalHours": 1.5,
     "bestTime": "Year-round",
     "permitRequired": false,
     "bookingType": "none",
     "recommendedTime": "any",
-    "slug": "govind-nagar-market-caf-s"
+    "slug": "govind-nagar-market-cafes"
   },
   {
     "id": "HV009",
     "island": "Havelock (Swaraj Dweep)",
     "location": "Beach No.3 & No.1 Shoreline Walks",
-    "moods": [
-      "romantic",
-      "offbeat"
-    ],
+    "moods": ["romantic", "offbeat"],
     "category": "beach",
     "brief": "Quieter beach belts for long walks.",
     "typicalHours": 1.5,
@@ -538,14 +395,12 @@
     "recommendedTime": "sunrise/sunset",
     "slug": "beach-no-3-no-1-shoreline-walks"
   },
+
   {
     "id": "LA001",
     "island": "Little Andaman",
     "location": "Butler Bay Beach (Surf Spot)",
-    "moods": [
-      "adventure",
-      "romantic"
-    ],
+    "moods": ["adventure", "romantic"],
     "category": "beach",
     "brief": "Popular surf breaks; long sandy arc.",
     "typicalHours": 3.0,
@@ -559,9 +414,7 @@
     "id": "LA002",
     "island": "Little Andaman",
     "location": "White Surf Waterfall",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "attraction",
     "brief": "Short walk to a broad cascade in the forest.",
     "typicalHours": 2.0,
@@ -575,10 +428,7 @@
     "id": "LA003",
     "island": "Little Andaman",
     "location": "Whisper Wave Waterfall (Jungle Trek)",
-    "moods": [
-      "adventure",
-      "offbeat"
-    ],
+    "moods": ["adventure", "offbeat"],
     "category": "trek",
     "brief": "Forest trek to a multi-tier waterfall and pools.",
     "typicalHours": 3.0,
@@ -592,10 +442,7 @@
     "id": "LA004",
     "island": "Little Andaman",
     "location": "Hut Bay (Market & Jetty)",
-    "moods": [
-      "offbeat",
-      "family"
-    ],
+    "moods": ["offbeat", "family"],
     "category": "transport",
     "brief": "Gateway town with basic services and jetty.",
     "typicalHours": 1.0,
@@ -609,9 +456,7 @@
     "id": "LA005",
     "island": "Little Andaman",
     "location": "Hut Bay Jetty",
-    "moods": [
-      "transport"
-    ],
+    "moods": ["transport"],
     "category": "jetty",
     "brief": "Main entry jetty for Little Andaman.",
     "typicalHours": 0.5,
@@ -625,10 +470,7 @@
     "id": "LA006",
     "island": "Little Andaman",
     "location": "Little Andaman Lighthouse (Keating Point)",
-    "moods": [
-      "family",
-      "romantic"
-    ],
+    "moods": ["family", "romantic"],
     "category": "landmark",
     "brief": "Coastal lighthouse viewpoint.",
     "typicalHours": 1.0,
@@ -638,14 +480,12 @@
     "recommendedTime": "any",
     "slug": "little-andaman-lighthouse-keating-point"
   },
+
   {
     "id": "LI001",
     "island": "Long Island (Middle Andaman)",
     "location": "Lalaji Bay Beach",
-    "moods": [
-      "romantic",
-      "offbeat"
-    ],
+    "moods": ["romantic", "offbeat"],
     "category": "beach",
     "brief": "Beautiful long bay; trek/boat access; remote vibe.",
     "typicalHours": 4.0,
@@ -659,10 +499,7 @@
     "id": "LI002",
     "island": "Long Island (Middle Andaman)",
     "location": "Merk Bay (North Passage Island)",
-    "moods": [
-      "offbeat",
-      "adventure"
-    ],
+    "moods": ["offbeat", "adventure"],
     "category": "island",
     "brief": "Boat excursion to a pristine sandbar & reefs.",
     "typicalHours": 5.0,
@@ -676,10 +513,7 @@
     "id": "LI003",
     "island": "Long Island (Middle Andaman)",
     "location": "Guitar Island Sandbar",
-    "moods": [
-      "offbeat",
-      "romantic"
-    ],
+    "moods": ["offbeat", "romantic"],
     "category": "island",
     "brief": "Shallow sandbar shaped like a guitar; tide-dependent.",
     "typicalHours": 3.0,
@@ -693,9 +527,7 @@
     "id": "LI009",
     "island": "Long Island (Middle Andaman)",
     "location": "Long Island Jetty",
-    "moods": [
-      "transport"
-    ],
+    "moods": ["transport"],
     "category": "jetty",
     "brief": "Entry to Long Island village.",
     "typicalHours": 0.5,
@@ -705,16 +537,14 @@
     "recommendedTime": "any",
     "slug": "long-island-jetty"
   },
+
   {
     "id": "MB001",
     "island": "Mayabunder (Middle Andaman)",
     "location": "Karmatang Beach (Turtle Season)",
-    "moods": [
-      "family",
-      "offbeat"
-    ],
+    "moods": ["family", "offbeat"],
     "category": "beach",
-    "brief": "Long beach with seasonal turtle nesting.",
+    "brief": "Quiet long beach near Mayabunder with seasonal turtle nesting.",
     "typicalHours": 2.0,
     "bestTime": "Dec-Mar",
     "permitRequired": false,
@@ -726,12 +556,9 @@
     "id": "MB002",
     "island": "Mayabunder (Middle Andaman)",
     "location": "Avis Island",
-    "moods": [
-      "romantic",
-      "offbeat"
-    ],
+    "moods": ["romantic", "offbeat", "nature", "adventure"],
     "category": "island",
-    "brief": "Small islet with clear waters; boat trip from Mayabunder.",
+    "brief": "Small islet with coconut plantations and clear turquoise waters; boat trip from Mayabunder.",
     "typicalHours": 3.0,
     "bestTime": "Nov-Apr",
     "permitRequired": false,
@@ -743,10 +570,7 @@
     "id": "MB003",
     "island": "Mayabunder (Middle Andaman)",
     "location": "Austin Strait Viewpoints",
-    "moods": [
-      "offbeat",
-      "romantic"
-    ],
+    "moods": ["offbeat", "romantic"],
     "category": "attraction",
     "brief": "Roadside viewpoints over the channels.",
     "typicalHours": 1.0,
@@ -757,29 +581,10 @@
     "slug": "austin-strait-viewpoints"
   },
   {
-    "id": "MY001",
-    "island": "Mayabunder (Middle Andaman)",
-    "location": "Mayabunder Karmatang Beach",
-    "moods": [
-      "nature",
-      "family"
-    ],
-    "category": "beach",
-    "brief": "Quiet long beach near Mayabunder.",
-    "typicalHours": 2.0,
-    "bestTime": "Nov-Mar",
-    "permitRequired": false,
-    "bookingType": "none",
-    "recommendedTime": "sunrise/sunset",
-    "slug": "mayabunder-karmatang-beach"
-  },
-  {
-    "id": "MY002",
+    "id": "MB004",
     "island": "Mayabunder (Middle Andaman)",
     "location": "Ray Hills (Mayabunder)",
-    "moods": [
-      "nature"
-    ],
+    "moods": ["nature"],
     "category": "viewpoint",
     "brief": "Lookout point over creeks.",
     "typicalHours": 1.0,
@@ -790,14 +595,10 @@
     "slug": "ray-hills-mayabunder"
   },
   {
-    "id": "MY003",
+    "id": "MB005",
     "island": "Mayabunder (Middle Andaman)",
     "location": "Interview Island",
-    "moods": [
-      "nature",
-      "adventure",
-      "romantic"
-    ],
+    "moods": ["nature", "adventure", "romantic"],
     "category": "island",
     "brief": "Largest wildlife sanctuary in the region; remote & pristine.",
     "typicalHours": 6.0,
@@ -808,14 +609,10 @@
     "slug": "interview-island"
   },
   {
-    "id": "MY004",
+    "id": "MB006",
     "island": "Mayabunder (Middle Andaman)",
     "location": "Rampur Beach",
-    "moods": [
-      "family",
-      "romantic",
-      "nature"
-    ],
+    "moods": ["family", "romantic", "nature"],
     "category": "beach",
     "brief": "Unspoilt beach with mangrove surroundings.",
     "typicalHours": 2.0,
@@ -825,32 +622,27 @@
     "recommendedTime": "sunrise/sunset",
     "slug": "rampur-beach"
   },
+
   {
-    "id": "MY005",
+    "id": "MY004",
     "island": "Mayabunder (Middle Andaman)",
-    "location": "Avis Island",
-    "moods": [
-      "nature",
-      "adventure",
-      "romantic"
-    ],
-    "category": "island",
-    "brief": "Coconut plantations & turquoise waters.",
-    "typicalHours": 3.0,
+    "location": "Rampur Beach (Legacy ID)",
+    "moods": ["family", "romantic", "nature"],
+    "category": "beach",
+    "brief": "Legacy ID for Rampur Beach; kept for backward compatibility.",
+    "typicalHours": 2.0,
     "bestTime": "Nov-Apr",
     "permitRequired": false,
-    "bookingType": "permit+boat",
-    "recommendedTime": "early morning",
-    "slug": "avis-island"
+    "bookingType": "none",
+    "recommendedTime": "sunrise/sunset",
+    "slug": "rampur-beach-legacy"
   },
+
   {
     "id": "NL001",
     "island": "Neil (Shaheed Dweep)",
     "location": "Bharatpur Beach (Glass-bottom/Water Sports)",
-    "moods": [
-      "family",
-      "adventure"
-    ],
+    "moods": ["family", "adventure"],
     "category": "beach",
     "brief": "Lagoon beach with water sports and boat rides.",
     "typicalHours": 3.0,
@@ -864,10 +656,7 @@
     "id": "NL002",
     "island": "Neil (Shaheed Dweep)",
     "location": "Laxmanpur Beach I (Sunset)",
-    "moods": [
-      "romantic",
-      "family"
-    ],
+    "moods": ["romantic", "family"],
     "category": "beach",
     "brief": "Best sunset bay on Neil with wide horizons.",
     "typicalHours": 1.5,
@@ -881,10 +670,7 @@
     "id": "NL003",
     "island": "Neil (Shaheed Dweep)",
     "location": "Laxmanpur Beach II (Natural Bridge)",
-    "moods": [
-      "family",
-      "offbeat"
-    ],
+    "moods": ["family", "offbeat"],
     "category": "beach",
     "brief": "Tide-pool bridge formations; go at low tide.",
     "typicalHours": 1.5,
@@ -898,9 +684,7 @@
     "id": "NL004",
     "island": "Neil (Shaheed Dweep)",
     "location": "Sitapur Beach (Sunrise)",
-    "moods": [
-      "romantic"
-    ],
+    "moods": ["romantic"],
     "category": "beach",
     "brief": "Eastern sunrise point with small coves.",
     "typicalHours": 1.0,
@@ -914,30 +698,9 @@
     "id": "NL005",
     "island": "Neil (Shaheed Dweep)",
     "location": "Ramnagar Beach",
-    "moods": [
-      "offbeat",
-      "family"
-    ],
+    "moods": ["offbeat", "family", "nature", "adventure"],
     "category": "beach",
-    "brief": "Less crowded beach; simple facilities.",
-    "typicalHours": 1.5,
-    "bestTime": "Oct-Mar",
-    "permitRequired": false,
-    "bookingType": "none",
-    "recommendedTime": "sunrise/sunset",
-    "slug": "ramnagar-beach"
-  },
-  {
-    "id": "NL006",
-    "island": "Neil (Shaheed Dweep)",
-    "location": "Ramnagar Beach",
-    "moods": [
-      "family",
-      "romantic",
-      "nature"
-    ],
-    "category": "beach",
-    "brief": "Quiet beach; snorkeling option.",
+    "brief": "Quiet beach with simple facilities and some snorkeling spots.",
     "typicalHours": 2.0,
     "bestTime": "Nov-Apr",
     "permitRequired": false,
@@ -949,10 +712,7 @@
     "id": "NL007",
     "island": "Neil (Shaheed Dweep)",
     "location": "Sitapur Viewpoint",
-    "moods": [
-      "romantic",
-      "nature"
-    ],
+    "moods": ["romantic", "nature"],
     "category": "viewpoint",
     "brief": "Cliff viewpoint near Sitapur Beach.",
     "typicalHours": 1.0,
@@ -962,13 +722,12 @@
     "recommendedTime": "sunrise/sunset",
     "slug": "sitapur-viewpoint"
   },
+
   {
     "id": "PB001",
     "island": "Port Blair (South Andaman)",
     "location": "Veer Savarkar International Airport (IXZ)",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "transport",
     "brief": "Primary arrival/departure airport for Andaman trips.",
     "typicalHours": 1.0,
@@ -982,10 +741,7 @@
     "id": "PB002",
     "island": "Port Blair (South Andaman)",
     "location": "Cellular Jail",
-    "moods": [
-      "family",
-      "romantic"
-    ],
+    "moods": ["family", "romantic"],
     "category": "attraction",
     "brief": "National memorial and key historic site; evening Light & Sound show available.",
     "typicalHours": 2.0,
@@ -999,10 +755,7 @@
     "id": "PB003",
     "island": "Port Blair (South Andaman)",
     "location": "Light & Sound Show (Cellular Jail)",
-    "moods": [
-      "family",
-      "romantic"
-    ],
+    "moods": ["family", "romantic"],
     "category": "experience",
     "brief": "Evening narrative show illuminating Andaman's freedom history.",
     "typicalHours": 1.0,
@@ -1016,10 +769,7 @@
     "id": "PB004",
     "island": "Port Blair (South Andaman)",
     "location": "Corbyn's Cove Beach",
-    "moods": [
-      "family",
-      "romantic"
-    ],
+    "moods": ["family", "romantic"],
     "category": "beach",
     "brief": "Easy beach near town; popular for jet ski & seafront strolls.",
     "typicalHours": 2.0,
@@ -1027,16 +777,13 @@
     "permitRequired": false,
     "bookingType": "none",
     "recommendedTime": "sunrise/sunset",
-    "slug": "corbyn-s-cove-beach"
+    "slug": "corbyns-cove-beach"
   },
   {
     "id": "PB005",
     "island": "Port Blair (South Andaman)",
     "location": "Chidiya Tapu (Sunset Point)",
-    "moods": [
-      "romantic",
-      "family"
-    ],
+    "moods": ["romantic", "family"],
     "category": "attraction",
     "brief": "Sunset viewpoint with birdlife and calm waters.",
     "typicalHours": 2.0,
@@ -1050,10 +797,7 @@
     "id": "PB006",
     "island": "Port Blair (South Andaman)",
     "location": "Munda Pahad Trek (Chidiya Tapu)",
-    "moods": [
-      "adventure",
-      "offbeat"
-    ],
+    "moods": ["adventure", "offbeat"],
     "category": "trek",
     "brief": "Short coastal trek to a panoramic cliff point.",
     "typicalHours": 2.0,
@@ -1067,9 +811,7 @@
     "id": "PB007",
     "island": "Port Blair (South Andaman)",
     "location": "Wandoor Beach",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "beach",
     "brief": "Gateway to Mahatma Gandhi Marine National Park.",
     "typicalHours": 2.0,
@@ -1083,10 +825,7 @@
     "id": "PB008",
     "island": "Port Blair (South Andaman)",
     "location": "Jolly Buoy Island (Snorkeling)",
-    "moods": [
-      "family",
-      "adventure"
-    ],
+    "moods": ["family", "adventure"],
     "category": "island",
     "brief": "Classic clear-water snorkel site (permit/seasonal rotation with Red Skin).",
     "typicalHours": 5.0,
@@ -1100,10 +839,7 @@
     "id": "PB009",
     "island": "Port Blair (South Andaman)",
     "location": "Red Skin Island (Snorkeling)",
-    "moods": [
-      "family",
-      "adventure"
-    ],
+    "moods": ["family", "adventure"],
     "category": "island",
     "brief": "Alternate to Jolly Buoy with rich coral and fish.",
     "typicalHours": 5.0,
@@ -1117,9 +853,7 @@
     "id": "PB010",
     "island": "Port Blair (South Andaman)",
     "location": "Mahatma Gandhi Marine National Park (Wandoor)",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "park",
     "brief": "Park HQ for Jolly Buoy/Red Skin permits and exhibits.",
     "typicalHours": 1.0,
@@ -1133,9 +867,7 @@
     "id": "PB011",
     "island": "Port Blair (South Andaman)",
     "location": "Samudrika Naval Marine Museum",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "museum",
     "brief": "Marine life, tribal history, and island exhibits.",
     "typicalHours": 1.0,
@@ -1149,9 +881,7 @@
     "id": "PB012",
     "island": "Port Blair (South Andaman)",
     "location": "Anthropological Museum",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "museum",
     "brief": "Showcases Andaman & Nicobar tribes and culture.",
     "typicalHours": 1.0,
@@ -1165,9 +895,7 @@
     "id": "PB013",
     "island": "Port Blair (South Andaman)",
     "location": "Fisheries Museum (Aquarium)",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "museum",
     "brief": "Small aquarium with regional marine species.",
     "typicalHours": 1.0,
@@ -1181,9 +909,7 @@
     "id": "PB014",
     "island": "Port Blair (South Andaman)",
     "location": "Science Centre",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "attraction",
     "brief": "Hands-on exhibits; good with kids.",
     "typicalHours": 1.0,
@@ -1197,10 +923,7 @@
     "id": "PB015",
     "island": "Port Blair (South Andaman)",
     "location": "Chatham Saw Mill & Museum",
-    "moods": [
-      "family",
-      "offbeat"
-    ],
+    "moods": ["family", "offbeat"],
     "category": "museum",
     "brief": "One of Asia's oldest saw mills; museum & heritage walk.",
     "typicalHours": 1.5,
@@ -1214,10 +937,7 @@
     "id": "PB016",
     "island": "Port Blair (South Andaman)",
     "location": "Mount Manipur (Mount Harriet) National Park",
-    "moods": [
-      "adventure",
-      "family"
-    ],
+    "moods": ["adventure", "family"],
     "category": "park",
     "brief": "Cooler hilltop views; short walks and viewpoints.",
     "typicalHours": 3.0,
@@ -1231,10 +951,7 @@
     "id": "PB017",
     "island": "Port Blair (South Andaman)",
     "location": "North Bay Island (Water Sports)",
-    "moods": [
-      "family",
-      "adventure"
-    ],
+    "moods": ["family", "adventure"],
     "category": "island",
     "brief": "Busy hub for sea walk, snorkelling, semi-submarine rides.",
     "typicalHours": 4.0,
@@ -1248,10 +965,7 @@
     "id": "PB018",
     "island": "Port Blair (South Andaman)",
     "location": "Ross Island / Netaji Subhash Chandra Bose Island",
-    "moods": [
-      "family",
-      "romantic"
-    ],
+    "moods": ["family", "romantic"],
     "category": "island",
     "brief": "Beautiful ruins overgrown with roots; short heritage walk.",
     "typicalHours": 2.0,
@@ -1265,9 +979,7 @@
     "id": "PB019",
     "island": "Port Blair (South Andaman)",
     "location": "Marina Park & Water Sports Complex",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "park",
     "brief": "Seafront promenade; jetty for many excursions.",
     "typicalHours": 1.0,
@@ -1281,10 +993,7 @@
     "id": "PB020",
     "island": "Port Blair (South Andaman)",
     "location": "Viper Island",
-    "moods": [
-      "offbeat",
-      "family"
-    ],
+    "moods": ["offbeat", "family"],
     "category": "island",
     "brief": "Ruins and quiet views, less visited.",
     "typicalHours": 2.0,
@@ -1298,10 +1007,7 @@
     "id": "PB021",
     "island": "Port Blair (South Andaman)",
     "location": "Jogger's Park (Runway View)",
-    "moods": [
-      "romantic",
-      "family"
-    ],
+    "moods": ["romantic", "family"],
     "category": "park",
     "brief": "Elevated park overlooking airport runway; evening views.",
     "typicalHours": 1.0,
@@ -1309,16 +1015,13 @@
     "permitRequired": false,
     "bookingType": "none",
     "recommendedTime": "any",
-    "slug": "jogger-s-park-runway-view"
+    "slug": "joggers-park-runway-view"
   },
   {
     "id": "PB022",
     "island": "Port Blair (South Andaman)",
     "location": "Collinpur Beach",
-    "moods": [
-      "offbeat",
-      "romantic"
-    ],
+    "moods": ["offbeat", "romantic"],
     "category": "beach",
     "brief": "Quiet beach away from the city; good for an evening drive.",
     "typicalHours": 2.0,
@@ -1332,9 +1035,7 @@
     "id": "PB023",
     "island": "Port Blair (South Andaman)",
     "location": "Flag Point",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "landmark",
     "brief": "Historic tricolor flag site on the seafront.",
     "typicalHours": 0.5,
@@ -1347,28 +1048,22 @@
   {
     "id": "PB024",
     "island": "Port Blair (South Andaman)",
-    "location": "Japanese Bunkers (various)",
-    "moods": [
-      "offbeat",
-      "family"
-    ],
+    "location": "Japanese Bunkers",
+    "moods": ["offbeat", "family", "romantic"],
     "category": "attraction",
-    "brief": "WWII-era bunkers dotted around the coast.",
+    "brief": "WWII-era coastal bunkers; historical interest and photo spots.",
     "typicalHours": 1.0,
     "bestTime": "Year-round",
     "permitRequired": false,
     "bookingType": "none",
     "recommendedTime": "any",
-    "slug": "japanese-bunkers-various"
+    "slug": "japanese-bunkers"
   },
   {
     "id": "PB025",
     "island": "Port Blair (South Andaman)",
     "location": "Sippighat Agricultural Farm (Birding)",
-    "moods": [
-      "offbeat",
-      "family"
-    ],
+    "moods": ["offbeat", "family"],
     "category": "attraction",
     "brief": "Wetlands and farm belts; spot local birdlife.",
     "typicalHours": 1.5,
@@ -1382,9 +1077,7 @@
     "id": "PB026",
     "island": "Port Blair (South Andaman)",
     "location": "Rajiv Gandhi Water Sports Complex",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "experience",
     "brief": "Ticketing/start point for many short boat trips.",
     "typicalHours": 1.0,
@@ -1398,9 +1091,7 @@
     "id": "PB035",
     "island": "Port Blair (South Andaman)",
     "location": "Phoenix Bay Jetty",
-    "moods": [
-      "transport"
-    ],
+    "moods": ["transport"],
     "category": "jetty",
     "brief": "Main jetty for inter-island ferries.",
     "typicalHours": 0.5,
@@ -1414,10 +1105,7 @@
     "id": "PB040",
     "island": "Port Blair (South Andaman)",
     "location": "Rutland Island (by charter)",
-    "moods": [
-      "adventure",
-      "nature"
-    ],
+    "moods": ["adventure", "nature"],
     "category": "island",
     "brief": "Offbeat snorkeling & sandbar (permit/boat).",
     "typicalHours": 6.0,
@@ -1428,30 +1116,10 @@
     "slug": "rutland-island-by-charter"
   },
   {
-    "id": "PB041",
-    "island": "Port Blair (South Andaman)",
-    "location": "Japanese Bunkers",
-    "moods": [
-      "family",
-      "romantic"
-    ],
-    "category": "landmark",
-    "brief": "WWII-era bunkers; historical interest.",
-    "typicalHours": 1.0,
-    "bestTime": "Year-round",
-    "permitRequired": false,
-    "bookingType": "none",
-    "recommendedTime": "any",
-    "slug": "japanese-bunkers"
-  },
-  {
     "id": "PB042",
     "island": "Port Blair (South Andaman)",
     "location": "Forest Museum",
-    "moods": [
-      "family",
-      "nature"
-    ],
+    "moods": ["family", "nature"],
     "category": "museum",
     "brief": "Showcases forestry & local flora.",
     "typicalHours": 1.0,
@@ -1465,9 +1133,7 @@
     "id": "PB043",
     "island": "Port Blair (South Andaman)",
     "location": "Mini Zoo",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "zoo",
     "brief": "Small zoo with endemic species.",
     "typicalHours": 1.0,
@@ -1477,13 +1143,12 @@
     "recommendedTime": "any",
     "slug": "mini-zoo"
   },
+
   {
     "id": "RG001",
     "island": "Rangat (Middle Andaman)",
     "location": "Amkunj Beach & Eco Park",
-    "moods": [
-      "family"
-    ],
+    "moods": ["family"],
     "category": "beach",
     "brief": "Eco-friendly beach park with driftwood installations.",
     "typicalHours": 1.5,
@@ -1497,10 +1162,7 @@
     "id": "RG002",
     "island": "Rangat (Middle Andaman)",
     "location": "Dhani Nallah Mangrove Walkway",
-    "moods": [
-      "family",
-      "offbeat"
-    ],
+    "moods": ["family", "offbeat"],
     "category": "attraction",
     "brief": "Long wooden boardwalk across mangroves to the beach.",
     "typicalHours": 1.5,
@@ -1514,10 +1176,7 @@
     "id": "RG003",
     "island": "Rangat (Middle Andaman)",
     "location": "Morrice Dera Beach",
-    "moods": [
-      "offbeat",
-      "romantic"
-    ],
+    "moods": ["offbeat", "romantic"],
     "category": "beach",
     "brief": "Rocky, photogenic beach; fewer visitors.",
     "typicalHours": 1.0,
@@ -1531,10 +1190,7 @@
     "id": "RG004",
     "island": "Rangat (Middle Andaman)",
     "location": "Yerrata Mangrove Park",
-    "moods": [
-      "family",
-      "offbeat"
-    ],
+    "moods": ["family", "offbeat"],
     "category": "park",
     "brief": "Observation tower and mangrove learning centre.",
     "typicalHours": 1.0,
@@ -1548,9 +1204,7 @@
     "id": "RG005",
     "island": "Rangat (Middle Andaman)",
     "location": "Moricedera Beach",
-    "moods": [
-      "nature"
-    ],
+    "moods": ["nature"],
     "category": "beach",
     "brief": "Rocky tidal pools & views.",
     "typicalHours": 1.5,
@@ -1564,9 +1218,7 @@
     "id": "RG006",
     "island": "Rangat (Middle Andaman)",
     "location": "Rangat Jetty (Yerrata)",
-    "moods": [
-      "transport"
-    ],
+    "moods": ["transport"],
     "category": "jetty",
     "brief": "Access for Middle Andaman routes.",
     "typicalHours": 0.5,
@@ -1576,14 +1228,12 @@
     "recommendedTime": "any",
     "slug": "rangat-jetty-yerrata"
   },
+
   {
     "id": "RX001",
     "island": "Remote/Expeditions",
     "location": "Barren Island (Active Volcano Cruise/Scuba)",
-    "moods": [
-      "adventure",
-      "offbeat"
-    ],
+    "moods": ["adventure", "offbeat"],
     "category": "island",
     "brief": "Long-range cruise/dive near India's only active volcano.",
     "typicalHours": 10.0,
@@ -1597,10 +1247,7 @@
     "id": "RX002",
     "island": "Remote/Expeditions",
     "location": "South Cinque Island (Marine Reserve)",
-    "moods": [
-      "adventure",
-      "offbeat"
-    ],
+    "moods": ["adventure", "offbeat"],
     "category": "island",
     "brief": "Pristine reef systems; permits/charters required.",
     "typicalHours": 8.0,
@@ -1614,10 +1261,7 @@
     "id": "RX003",
     "island": "Remote/Expeditions",
     "location": "North Cinque Island (Marine Reserve)",
-    "moods": [
-      "adventure",
-      "offbeat"
-    ],
+    "moods": ["adventure", "offbeat"],
     "category": "island",
     "brief": "Clear lagoons and reefs; advanced planning needed.",
     "typicalHours": 8.0,
@@ -1631,10 +1275,7 @@
     "id": "RX004",
     "island": "Remote/Expeditions",
     "location": "Inglis Island (Day Excursion)",
-    "moods": [
-      "offbeat",
-      "romantic"
-    ],
+    "moods": ["offbeat", "romantic"],
     "category": "island",
     "brief": "Quiet islet for snorkel/picnic on permit basis.",
     "typicalHours": 6.0,
@@ -1648,10 +1289,7 @@
     "id": "RX005",
     "island": "Remote/Expeditions",
     "location": "Turtle Island Sandbanks (Seasonal)",
-    "moods": [
-      "offbeat",
-      "romantic"
-    ],
+    "moods": ["offbeat", "romantic"],
     "category": "island",
     "brief": "Shifting sandbars with shallow turquoise water.",
     "typicalHours": 4.0,
@@ -1665,10 +1303,7 @@
     "id": "RX006",
     "island": "Remote/Expeditions",
     "location": "Parrot Island (Near Baratang/Rangat)",
-    "moods": [
-      "romantic",
-      "offbeat"
-    ],
+    "moods": ["romantic", "offbeat"],
     "category": "island",
     "brief": "Evening spectacle of parrots returning to roost (seasonal).",
     "typicalHours": 2.0,
