@@ -40,9 +40,21 @@ const sectionsByType = computed(() => {
   }
 
   for (const item of items.value) {
-    const t = (item.meta?.type as KnownType) || 'other'
-    if (map[t]) map[t].push(item)
-    else map.other.push(item)
+    // Prefer explicit meta.type
+    let t = (item.meta?.type as KnownType | undefined)
+
+    // Fallback: infer from id prefix if meta.type is missing
+    if (!t) {
+      if (item.id.startsWith('act:')) t = 'activity'
+      else if (item.id.startsWith('cab:')) t = 'cab'
+      else if (item.id.startsWith('ferry:')) t = 'ferry'
+      else if (item.id.startsWith('scooter:')) t = 'scooter'
+      else if (item.id.startsWith('bicycle:')) t = 'bicycle'
+      else if (item.id.startsWith('hotel:')) t = 'hotel'
+      else t = 'other'
+    }
+
+    map[t].push(item)
   }
 
   return Object.entries(map)
