@@ -26,7 +26,8 @@ export function useDataPack() {
         fetch('/data/ferries.json').then(r => r.json()),
         fetch('/data/cabs.json').then(r => r.json()),
         fetch('/data/scooters.json').then(r => r.json()),
-        fetch('/data/bicycle.json').then(r => r.json()).catch(() => []),
+        // FIXED HERE 👇
+        fetch('/data/bicycles.json').then(r => r.json()).catch(() => []),
         fetch('/data/meta.json')
           .then(r => r.json())
           .catch(() => ({ currency: 'INR', taxPercent: 0, serviceFee: 0 }))
