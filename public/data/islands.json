@@ -1,0 +1,72 @@
+[
+  {
+    "id": "PB",
+    "name": "Port Blair (South Andaman)",
+    "slug": "port-blair",
+    "region": "South Andaman",
+    "isGateway": true,
+    "hasAirport": true,
+    "supportsCabs": true,
+    "supportsScooters": true,
+    "supportsBicycles": true,
+    "isFerryHub": true,
+    "notes": "Main entry point; includes Baratang as a day-trip zone."
+  },
+  {
+    "id": "HL",
+    "name": "Havelock (Swaraj Dweep)",
+    "slug": "havelock",
+    "region": "South Andaman",
+    "isGateway": false,
+    "hasAirport": false,
+    "supportsCabs": true,
+    "supportsScooters": true,
+    "supportsBicycles": true,
+    "isFerryHub": true,
+    "notes": "Major tourist island; top beaches, diving and kayaking."
+  },
+  {
+    "id": "NL",
+    "name": "Neil (Shaheed Dweep)",
+    "slug": "neil",
+    "region": "South Andaman",
+    "supportsCabs": true,
+    "supportsScooters": true,
+    "supportsBicycles": true,
+    "isFerryHub": true,
+    "notes": "Small, flat island; very suitable for bicycles & scooters."
+  },
+  {
+    "id": "LI",
+    "name": "Long Island",
+    "slug": "long-island",
+    "region": "Middle Andaman",
+    "supportsCabs": false,
+    "supportsScooters": true,
+    "supportsBicycles": false,
+    "isFerryHub": true,
+    "notes": "Remote island village; mostly boat treks."
+  },
+  {
+    "id": "NA",
+    "name": "North Andaman (Mayabunder + Diglipur)",
+    "slug": "north-andaman",
+    "region": "North Andaman",
+    "supportsCabs": true,
+    "supportsScooters": true,
+    "supportsBicycles": false,
+    "isFerryHub": false,
+    "notes": "Operational cluster combining Mayabunder & Diglipur."
+  },
+  {
+    "id": "LA",
+    "name": "Little Andaman (Hut Bay)",
+    "slug": "little-andaman",
+    "region": "South Andaman",
+    "supportsCabs": true,
+    "supportsScooters": true,
+    "supportsBicycles": false,
+    "isFerryHub": true,
+    "notes": "Surfing, waterfalls, remote travel; scooters essential."
+  }
+]
