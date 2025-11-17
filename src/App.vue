@@ -1,336 +1,617 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import { useDataPack } from '@/composables/useDataPack'
 import { useCart } from '@/stores/useCart'
 
+// Components
 import TripSummary from '@/components/TripSummary.vue'
+import ActivitiesPicker from '@/components/ActivitiesPicker.vue'
 import CabPicker from '@/components/CabPicker.vue'
 import FerryPicker from '@/components/FerryPicker.vue'
-import ActivitiesPicker from '@/components/ActivitiesPicker.vue'
 import ScooterPicker from '@/components/ScooterPicker.vue'
 import BicyclePicker from '@/components/BicyclePicker.vue'
 
 const { load, isLoading, error } = useDataPack()
 const cart = useCart()
-const data = ref<any>(null)
+const data = ref<any | null>(null)
 
-// Step control: hero first, then main console
-const showPlanner = ref(false)
+// hero gate
+const hasStarted = ref(false)
 
-// Hero form state (we can later push this into a dedicated "trip" store)
-const tripName = ref('My Andaman Escape')
-const startDate = ref('')
-const tripNights = ref(5)
-const travellers = ref(2)
-const mood = ref<'family' | 'romantic' | 'adventure' | 'relaxed' | 'mixed'>('mixed')
+// wizard steps
+const step = ref(0)
+const steps = [
+  { key: 'basics',   label: 'Trip basics' },
+  { key: 'play',     label: 'Locations & activities' },
+  { key: 'cabs',     label: 'Cabs & local transfers' },
+  { key: 'ferries',  label: 'Ferries' },
+  { key: 'wheels',   label: 'Scooters & bicycles' }
+]
+
+// simple basics state for now
+const startDate = ref<string>('')
+const adults    = ref<number>(2)
+const children  = ref<number>(0)
 
 onMounted(async () => {
-  try {
-    data.value = await load()
-    const { currency = 'INR', taxPercent = 0, serviceFee = 0 } = data.value.meta || {}
-    cart.setMeta(currency, taxPercent, serviceFee)
-  } catch (e) {
-    console.error(e)
-  }
+  const loaded = await load()
+  data.value = loaded
+
+  const meta = loaded?.meta || {}
+  cart.setMeta(
+    (meta.currency as any) ?? 'INR',
+    Number(meta.taxPercent ?? 0),
+    Number(meta.serviceFee ?? 0)
+  )
 })
 
-function startPlanning() {
-  // Later we can save hero choices into meta / a separate store
-  showPlanner.value = true
+const currentStepLabel = computed(() => steps[step.value]?.label ?? '')
+const paxLabel = computed(() => {
+  const a = adults.value || 0
+  const c = children.value || 0
+  if (!a && !c) return 'No travellers set'
+  if (!c) return `${a} adult(s)`
+  return `${a} adult(s), ${c} child(ren)`
+})
+
+function startPlanner() {
+  hasStarted.value = true
+}
+
+function goNext() {
+  if (step.value < steps.length - 1) step.value++
+}
+function goPrev() {
+  if (step.value > 0) step.value--
+}
+function goTo(idx: number) {
+  if (idx >= 0 && idx < steps.length) step.value = idx
 }
 </script>
 
 <template>
-  <main class="shell">
-    <!-- LEFT: Hero or Builder -->
-    <section class="left">
-      <!-- STEP 0 – HERO / GATEWAY -->
-      <div v-if="!showPlanner" class="hero-card">
-        <div class="hero-pill">AI-assisted Andaman trip builder</div>
-
-        <h1 class="hero-title">
-          Craft your Andaman plan<br />
-          in minutes, not weeks.
-        </h1>
-
-        <p class="hero-sub">
-          Tell us the basics below, then unlock a smart console with ferries, cabs,
-          scooters, bicycles and activities – all in one transparent view.
-        </p>
-
-        <div class="hero-form">
-          <label class="hf-field">
-            <span>Trip name</span>
-            <input v-model="tripName" type="text" placeholder="e.g. Family Andaman 2026" />
-          </label>
-
-          <div class="hf-row">
-            <label class="hf-field">
-              <span>Start date (optional)</span>
-              <input v-model="startDate" type="date" />
-            </label>
-
-            <label class="hf-field">
-              <span>Nights</span>
-              <input v-model.number="tripNights" type="number" min="1" />
-            </label>
-
-            <label class="hf-field">
-              <span>Travellers</span>
-              <input v-model.number="travellers" type="number" min="1" />
-            </label>
-          </div>
-
-          <div class="hf-row">
-            <label class="hf-field">
-              <span>Vibe</span>
-              <select v-model="mood">
-                <option value="family">Family & kids</option>
-                <option value="romantic">Romantic / couple</option>
-                <option value="adventure">Adventure heavy</option>
-                <option value="relaxed">Slow & relaxed</option>
-                <option value="mixed">A bit of everything</option>
-              </select>
-            </label>
-          </div>
-
-          <button
-            class="hero-cta"
-            type="button"
-            @click="startPlanning"
-            :disabled="isLoading"
-          >
-            <span v-if="isLoading">Preparing data…</span>
-            <span v-else>Start planning</span>
-          </button>
-
-          <p class="hero-foot">
-            No login, no payment – this is a sandbox console you can share with your developer or DMC.
+  <div class="app-root">
+    <!-- HERO GATEWAY -->
+    <section v-if="!hasStarted" class="hero-shell">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <div class="hero-pill">AI-assisted Andaman tour builder</div>
+          <h1>Create your Andaman trip in 6 smart steps.</h1>
+          <p class="hero-sub">
+            Start from Port Blair, drag-and-drop locations, plug in ferries, cabs,
+            scooters & bicycles – and get a clean, shareable cost breakdown.
           </p>
 
-          <p v-if="error" class="hero-error">
-            ⚠️ Error loading data pack – please refresh once your JSON bundle is uploaded correctly.
-          </p>
+          <div class="hero-form">
+            <div class="hero-row">
+              <label>
+                <span>Start date (optional)</span>
+                <input type="date" v-model="startDate" />
+              </label>
+              <label>
+                <span>Adults</span>
+                <input type="number" min="1" v-model.number="adults" />
+              </label>
+              <label>
+                <span>Children</span>
+                <input type="number" min="0" v-model.number="children" />
+              </label>
+            </div>
+            <div class="hero-row hero-row-bottom">
+              <div class="hero-pax">
+                Travellers: <strong>{{ paxLabel }}</strong>
+              </div>
+              <button type="button" class="hero-cta" @click="startPlanner">
+                Start building your trip →
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-footnote">
+            No instant booking – this creates a structured plan + cost sheet
+            you can share with travellers and local vendors.
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <!-- simple placeholder “mock screenshot” -->
+          <div class="hero-card">
+            <div class="hero-card-header">
+              <span>Preview</span>
+              <span class="hero-chip">Trip summary</span>
+            </div>
+            <div class="hero-card-body">
+              <p>Day 1 – Port Blair • Arrival • Cellular Jail • Light &amp; Sound Show</p>
+              <p>Day 2 – Havelock • Radhanagar Beach • Kayaking</p>
+              <p class="hero-card-total">Indicative total: ₹ 1,24,000</p>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- STEP 1 – MAIN BUILDER -->
-      <div v-else class="builder">
-        <header class="builder-header">
-          <div>
-            <h1 class="builder-title">
-              {{ tripName || 'Your Andaman trip' }}
-            </h1>
-            <p class="builder-sub">
-              {{ travellers }} traveller<span v-if="travellers !== 1">s</span>
-              <span v-if="tripNights"> • ~{{ tripNights }} night trip</span>
-              <span v-if="startDate"> • from {{ startDate }}</span>
-              <span> • vibe: {{ mood }}</span>
+    <!-- MAIN PLANNER -->
+    <div v-else class="planner-shell">
+      <!-- sticky header -->
+      <header class="planner-header">
+        <div class="ph-left">
+          <div class="logo-dot"></div>
+          <div class="ph-text">
+            <div class="ph-title">Andaman Trip Planner</div>
+            <div class="ph-sub">
+              Step {{ step + 1 }} / {{ steps.length }} ·
+              <span>{{ currentStepLabel }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="ph-right">
+          <div class="ph-basics">
+            <span>Start: <strong>{{ startDate || 'not set' }}</strong></span>
+            <span class="dot">•</span>
+            <span>Pax: <strong>{{ paxLabel }}</strong></span>
+          </div>
+        </div>
+      </header>
+
+      <!-- stepper -->
+      <nav class="stepper">
+        <button
+          v-for="(s, idx) in steps"
+          :key="s.key"
+          type="button"
+          :class="['step-btn', { active: idx === step }]"
+          @click="goTo(idx)"
+        >
+          <span class="step-index">{{ idx + 1 }}</span>
+          <span class="step-label">{{ s.label }}</span>
+        </button>
+      </nav>
+
+      <!-- two-column layout -->
+      <main class="planner-main">
+        <section class="planner-main-left">
+          <!-- STEP 0 – basics (we already captured most on hero; here we just show/edit) -->
+          <div v-if="step === 0" class="panel">
+            <h2>Trip basics</h2>
+            <p class="panel-sub">
+              You can tweak dates & travellers here. This will feed into ferries,
+              hotels and total costing later.
             </p>
+            <div class="grid-3">
+              <label class="field">
+                <span>Start date</span>
+                <input type="date" v-model="startDate" />
+              </label>
+              <label class="field">
+                <span>Adults</span>
+                <input type="number" min="1" v-model.number="adults" />
+              </label>
+              <label class="field">
+                <span>Children</span>
+                <input type="number" min="0" v-model.number="children" />
+              </label>
+            </div>
+            <div class="panel-footer">
+              <button disabled class="btn-ghost">Back</button>
+              <button class="btn-primary" @click="goNext">Next: Locations & activities</button>
+            </div>
           </div>
-        </header>
 
-        <div v-if="isLoading" class="loading-block">
-          Loading islands, ferries & activities…
-        </div>
+          <!-- STEP 1 – locations & activities (for now: Activities picker block; later we’ll add LocationPicker) -->
+          <div v-else-if="step === 1" class="panel">
+            <h2>Locations & activities</h2>
+            <p class="panel-sub">
+              Start dropping in activities first – we’ll wire a dedicated
+              island-wise Location picker next, using your locations.json +
+              location_adventures.json.
+            </p>
+            <ActivitiesPicker />
+            <div class="panel-footer">
+              <button class="btn-ghost" @click="goPrev">Back</button>
+              <button class="btn-primary" @click="goNext">Next: Cabs & transfers</button>
+            </div>
+          </div>
 
-        <div v-else class="picker-stack">
-          <!-- Order: Activities → Ferries → Cabs → Scooters → Bicycles -->
-          <ActivitiesPicker />
-          <FerryPicker />
-          <CabPicker />
-          <ScooterPicker />
-          <BicyclePicker />
-        </div>
-      </div>
-    </section>
+          <!-- STEP 2 – cabs -->
+          <div v-else-if="step === 2" class="panel">
+            <h2>Cabs & local transfers</h2>
+            <p class="panel-sub">
+              Pick point-to-point or day cabs for Port Blair, Havelock, Neil,
+              Rangat, Mayabunder & Diglipur. All items feed into the trip summary.
+            </p>
+            <CabPicker />
+            <div class="panel-footer">
+              <button class="btn-ghost" @click="goPrev">Back</button>
+              <button class="btn-primary" @click="goNext">Next: Ferries</button>
+            </div>
+          </div>
 
-    <!-- RIGHT: Always-on trip summary (floating modern panel) -->
-    <section class="right">
-      <TripSummary />
-    </section>
-  </main>
+          <!-- STEP 3 – ferries -->
+          <div v-else-if="step === 3" class="panel">
+            <h2>Ferries</h2>
+            <p class="panel-sub">
+              Add inter-island ferries with sample fares per operator. In the
+              real integration, these will come from Nautika / Makruzz APIs.
+            </p>
+            <FerryPicker />
+            <div class="panel-footer">
+              <button class="btn-ghost" @click="goPrev">Back</button>
+              <button class="btn-primary" @click="goNext">
+                Next: Scooters & bicycles
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP 4 – scooters & bicycles / review -->
+          <div v-else-if="step === 4" class="panel">
+            <h2>Scooters & bicycles</h2>
+            <p class="panel-sub">
+              Layer in scooter + bicycle rentals by island to complete the
+              ground transport picture, especially for Havelock & Neil.
+            </p>
+            <ScooterPicker />
+            <hr class="panel-divider" />
+            <BicyclePicker />
+            <div class="panel-footer">
+              <button class="btn-ghost" @click="goPrev">Back</button>
+              <button class="btn-primary" @click="goNext">
+                Review – trip summary
+              </button>
+            </div>
+          </div>
+
+          <!-- STEP beyond: final review (optional, re-uses TripSummary fully expanded) -->
+          <div v-else class="panel">
+            <h2>Review & share</h2>
+            <p class="panel-sub">
+              Final check before you export or send to a traveller. All line
+              items below are editable / removable.
+            </p>
+            <TripSummary />
+            <div class="panel-footer">
+              <button class="btn-ghost" @click="goPrev">Back</button>
+              <button
+                class="btn-primary"
+                @click="() => alert('Here you will hook: send enquiry / export PDF / share link')"
+              >
+                Request to book / Export
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT: ultra-modern floating trip summary -->
+        <aside class="planner-main-right">
+          <TripSummary />
+        </aside>
+      </main>
+    </div>
+  </div>
 </template>
 
-<style>
-:root {
-  color-scheme: light;
+<style scoped>
+.app-root {
+  min-height: 100vh;
+  background: #f3f4f6;
+  color: #0f172a;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-body {
-  margin: 0;
-  background: radial-gradient(circle at top left, #eff6ff 0, #f9fafb 50%, #ffffff 100%);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+/* HERO */
+.hero-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background: radial-gradient(circle at top left, #e0f2fe, #f9fafb 45%, #eff6ff 90%);
 }
-
-/* 2-column shell */
-.shell {
-  max-width: 1180px;
-  margin: 24px auto;
-  padding: 16px;
+.hero-inner {
+  max-width: 1120px;
+  width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
-  gap: 18px;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 32px;
 }
-
-.left,
-.right {
-  min-width: 0;
+.hero-left h1 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 12px 0;
 }
-
-/* HERO CARD */
-.hero-card {
-  padding: 20px 22px 18px;
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.18);
-  border: 1px solid rgba(148, 163, 184, 0.3);
-}
-
 .hero-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
   border-radius: 999px;
-  background: #eff6ff;
-  color: #1d4ed8;
   font-size: 11px;
-  font-weight: 500;
-  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #0369a1;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.4);
 }
-
-.hero-title {
-  font-size: 26px;
-  line-height: 1.2;
-  margin: 0 0 6px;
-  letter-spacing: 0.01em;
-  color: #0f172a;
-}
-
 .hero-sub {
-  margin: 0 0 14px;
+  font-size: 14px;
+  color: #475569;
+  max-width: 420px;
+}
+.hero-form {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.14);
+  border: 1px solid #e5e7eb;
+}
+.hero-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+}
+.hero-row-bottom {
+  margin-top: 10px;
+  align-items: center;
+}
+.hero-row label span {
+  display: block;
+  font-size: 11px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+.hero-row input {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
   font-size: 13px;
+}
+.hero-pax {
+  font-size: 12px;
   color: #475569;
 }
-
-.hero-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.hf-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.hf-field {
-  flex: 1 1 0;
-  min-width: 130px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 11px;
-  color: #64748b;
-}
-
-.hf-field input,
-.hf-field select {
-  padding: 7px 9px;
-  border-radius: 999px;
-  border: 1px solid #d1d5db;
-  font-size: 12px;
-  outline: none;
-}
-
-.hf-field input:focus,
-.hf-field select:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.2);
-}
-
 .hero-cta {
-  margin-top: 4px;
-  align-self: flex-start;
-  padding: 8px 18px;
+  justify-self: flex-end;
+  padding: 8px 16px;
   border-radius: 999px;
   border: none;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  color: #f9fafb;
+  background: linear-gradient(90deg, #0ea5e9, #22c55e);
+  color: white;
+  font-weight: 700;
   font-size: 13px;
-  font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.4);
 }
-
-.hero-cta:disabled {
-  opacity: 0.6;
-  cursor: default;
-  box-shadow: none;
-}
-
-.hero-foot {
-  margin: 4px 0 0;
+.hero-footnote {
+  margin-top: 10px;
   font-size: 11px;
-  color: #94a3b8;
-}
-
-.hero-error {
-  margin-top: 6px;
-  font-size: 11px;
-  color: #b91c1c;
-}
-
-/* BUILDER */
-.builder {
-  padding: 12px 0;
-}
-
-.builder-header {
-  margin-bottom: 8px;
-}
-
-.builder-title {
-  margin: 0 0 4px;
-  font-size: 20px;
-  font-weight: 600;
-  color: #0f172a;
-}
-
-.builder-sub {
-  margin: 0;
-  font-size: 12px;
   color: #64748b;
 }
-
-.loading-block {
-  margin-top: 16px;
-  padding: 12px;
-  border-radius: 12px;
-  background: #eff6ff;
-  color: #1d4ed8;
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-card {
+  width: 100%;
+  max-width: 360px;
+  border-radius: 18px;
+  background: #020617;
+  color: #e5e7eb;
+  padding: 14px;
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.6);
+}
+.hero-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
   font-size: 12px;
 }
+.hero-chip {
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.3);
+}
+.hero-card-body p {
+  font-size: 12px;
+  margin: 4px 0;
+}
+.hero-card-total {
+  margin-top: 8px;
+  font-weight: 700;
+}
 
-.picker-stack {
+/* PLANNER */
+.planner-shell {
+  min-height: 100vh;
+}
+
+/* header */
+.planner-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+.ph-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #0ea5e9, #22c55e);
+}
+.ph-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+.ph-sub {
+  font-size: 11px;
+  color: #64748b;
+}
+.ph-right {
+  font-size: 11px;
+  color: #64748b;
+  display: flex;
+  gap: 8px;
+}
+.ph-basics {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dot {
+  font-size: 9px;
+}
+
+/* stepper */
+.stepper {
+  max-width: 1120px;
+  margin: 8px auto 4px;
+  padding: 0 16px 8px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+.step-btn {
+  border-radius: 10px;
+  padding: 6px 8px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  cursor: pointer;
+}
+.step-btn.active {
+  background: #0ea5e9;
+  border-color: #0ea5e9;
+  color: #ffffff;
+}
+.step-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 10px;
+}
+.step-label {
+  text-align: left;
+}
+
+/* main layout */
+.planner-main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 8px 16px 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 18px;
+}
+.planner-main-left {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+}
+.planner-main-right {
+  position: relative;
 }
 
-.picker-stack section {
+/* panels */
+.panel {
+  background: #ffffff;
   border-radius: 16px;
   border: 1px solid #e5e7eb;
-  padding: 10px 12px;
+  padding: 14px 16px 12px;
+  box-shadow: 0 10px 30px rgba(148, 163, 184, 0.2);
+}
+.panel h2 {
+  font-size: 16px;
+  margin: 0 0 4px;
+}
+.panel-sub {
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 10px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+.field span {
+  display: block;
+  font-size: 11px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+.field input,
+.field select {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+}
+.panel-footer {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.btn-ghost {
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
   background: #ffffff;
+  font-size: 12px;
+  cursor: pointer;
+}
+.btn-primary {
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid #0ea5e9;
+  background: #0ea5e9;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.panel-divider {
+  margin: 12px 0;
+  border: none;
+  border-top: 1px dashed #e5e7eb;
 }
 
-/* Responsive */
-@media (max-width: 960px) {
-  .shell {
+/* right summary */
+.planner-main-right > * {
+  position: sticky;
+  top: 84px;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .hero-inner {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .planner-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .planner-main-right > * {
+    position: static;
   }
 }
 </style>
